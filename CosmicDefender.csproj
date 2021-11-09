@@ -60,16 +60,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveObjects.cs" />
-    <Compile Include="AdapterDamageForShip.cs" />
-    <Compile Include="AdapterDmgObjects.cs" />
-    <Compile Include="Bullet.cs" />
-    <Compile Include="CompositeEnemy.cs" />
+    <Compile Include="Adapters\AdapterDmgObjects.cs" />
+    <Compile Include="Compositors\CompositeEnemy.cs" />
     <Compile Include="Content.cs" />
-    <Compile Include="EnemyShip.cs" />
+    <Compile Include="Entities\ActiveObjects\ActiveObjects.cs" />
+    <Compile Include="Entities\ActiveObjects\Bullet.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\ManagedObjects\ManagedObjects.cs" />
+    <Compile Include="Entities\ManagedObjects\Ships\Decorator\Gun2.cs" />
+    <Compile Include="Entities\ManagedObjects\Ships\Decorator\ShipDecorator.cs" />
+    <Compile Include="Entities\ManagedObjects\Ships\EnemyShip.cs" />
+    <Compile Include="Entities\ManagedObjects\Ships\PlayerShip.cs" />
+    <Compile Include="Entities\ManagedObjects\Ships\Ship.cs" />
     <Compile Include="GameLevel.cs" />
-    <Compile Include="Gun.cs" />
-    <Compile Include="Gun2.cs" />
     <Compile Include="Handlers\GameManager.cs" />
     <Compile Include="Handlers\Handlers.cs" />
     <Compile Include="Handlers\Spawner\ISpawner.cs" />
@@ -80,24 +83,22 @@
     <Compile Include="Handlers\Spawner\Spawn\SpawnBoss.cs" />
     <Compile Include="Handlers\Spawner\Spawn\SpawnEnemy.cs" />
     <Compile Include="Handlers\Spawner\Spawn\SpawnPlayer.cs" />
-    <Compile Include="IDamage.cs" />
-    <Compile Include="IDrawableObjects.cs" />
-    <Compile Include="Entity.cs" />
     <Compile Include="IGunShot\DoubleShot.cs" />
     <Compile Include="IGunShot\IGunShot.cs" />
     <Compile Include="IGunShot\MultiShot.cs" />
     <Compile Include="IGunShot\SingleShot.cs" />
-    <Compile Include="IteratorEntities.cs" />
-    <Compile Include="ManagedObjects.cs" />
-    <Compile Include="PlayerShip.cs" />
+    <Compile Include="Interfaces\IDrawableObjects.cs" />
+    <Compile Include="Iterator\IteratorEntities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ship.cs" />
-    <Compile Include="ShipDecorator.cs" />
+    <Compile Include="TMP\Gun.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\PassiveObjects" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
