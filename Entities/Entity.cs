@@ -16,6 +16,17 @@ namespace CosmicDefender
             get => _name;
             set => _name = value;
         }
-        
+        public enum TypeEntities
+        {
+            //PlayerShips
+            PlayerShip_1,
+            
+            //Astroids
+            Asteroid_1,
+            
+            //Enemies
+            EnemyShip_Simple,
+            EnemyShip_Boss_Level1,
+        }
     }
 }

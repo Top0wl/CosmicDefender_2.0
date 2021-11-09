@@ -26,58 +26,16 @@ namespace CosmicDefender
             }
             #endregion
 
+            Content content = new Content();
+
             while (Window.getInstance().getWindow().IsOpen)
             {
-                gameManager.Update();
+                //gameManager.Update();
+                FactoryEntities fE = new FactoryEntities();
+                Entity player = fE.ProduceEntity(Entity.TypeEntities.PlayerShip_1);
+                Console.WriteLine($"Создан объект типа {player.GetType()}");
                 
-                Content content = new Content();
-                content.Load();
-                
-                Ship ship1 = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot());
-                //ship1.Shot();
-                var ShipWithGun = new Gun2(ship1);
-                ShipWithGun.Shot();
-                ShipWithGun.Update();
-                
-                
-                Ship ship2 = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot());
-                Bullet b = new Bullet();
-                b.Damage(b, ship2, 30);
-                
-                Ship ship3 = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot());
-                Ship ship4 = new EnemyShip();
-                ship4.Damage(ship4, ship3, 120);
-
-
-                CompositeEnemy enemies = new CompositeEnemy();
-                enemies.Add(new EnemyShip());
-                enemies.Add(new EnemyShip());
-                enemies.Add(new EnemyShip());
-                enemies.MoveTo(new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot()));
-                
-                Ship ship7 = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot());
-                Bullet b2 = new Bullet();
-                b.Damage(b2, ship2, 30);
-                
-                var ship5 = new AdapterDmgObjects(new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot()));
-                Ship ship6 = new EnemyShip();
-                ship5.Damage(ship5, ship6, 30);
-
-                List<Entity> entities = new List<Entity>()
-                {
-                    new EnemyShip(),
-                    new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot()),
-                    new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot()),
-                    new EnemyShip(),
-                };
-
-                IteratorEntities<Entity> ent = new IteratorEntities<Entity>(entities);
-                foreach (var item in ent)
-                {
-                    Console.WriteLine($"{item}");
-                }
-                
-                Window.getInstance().Update();
+                //Window.getInstance().Update();
             }
         }
     }

@@ -10,6 +10,8 @@ namespace CosmicDefender
 {
     class Content
     {
+        private static Content _instance;
+        
         private const string CONTENT_DIRICTORY = "..\\Content\\Textures\\";
         private Font font;
         private Text TextPlay;
@@ -17,7 +19,21 @@ namespace CosmicDefender
 
         public Sprite BackGround;
 
+        public Content()
+        {
+            _instance = this;
+            Load();
+        }
 
+        public static Content getInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Content();
+            }
+            return _instance;
+        }
+        
         #region Animation
         
 

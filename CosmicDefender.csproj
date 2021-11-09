@@ -72,6 +72,7 @@
     <Compile Include="Entities\ManagedObjects\Ships\EnemyShip.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\PlayerShip.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\Ship.cs" />
+    <Compile Include="FactoryShips.cs" />
     <Compile Include="GameLevel.cs" />
     <Compile Include="Handlers\GameManager.cs" />
     <Compile Include="Handlers\Handlers.cs" />
