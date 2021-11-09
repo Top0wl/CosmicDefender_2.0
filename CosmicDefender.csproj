@@ -92,6 +92,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TMP\Gun.cs" />
+    <Compile Include="TMP\IsCollide.cs" />
+    <Compile Include="TMP\ParticleEngine.cs" />
+    <Compile Include="TMP\ParticleEngineSystem.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
