@@ -27,15 +27,30 @@ namespace CosmicDefender
             #endregion
 
             Content content = new Content();
+            
+
+            
+            
+            //Создаём пушку
+            Gun gun = new Gun(new SingleShot());
+            //Обшиваем эту пушку траекторией
+            gun = new Trajectory(gun);
+            //Создаём игрока и ему присваиваем пушку
+            Ship Player = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, gun);
 
             while (Window.getInstance().getWindow().IsOpen)
             {
-                //gameManager.Update();
-                FactoryEntities fE = new FactoryEntities();
-                Entity player = fE.ProduceEntity(Entity.TypeEntities.PlayerShip_1);
-                Console.WriteLine($"Создан объект типа {player.GetType()}");
+                Player.Update();
+                gameManager.Update();
                 
-                //Window.getInstance().Update();
+                
+                
+                //.Update();
+                //FactoryEntities fE = new FactoryEntities();
+                //Entity player = fE.ProduceEntity(Entity.TypeEntities.PlayerShip_1);
+                //Console.WriteLine($"Создан объект типа {player.GetType()}");
+                
+                Window.getInstance().Update();
             }
         }
     }

@@ -21,11 +21,11 @@ namespace CosmicDefender
         {
             _level.Update();
             _level.Draw();
-            _spawner.Update();
+            //_spawner.Update();
             foreach (var entity in _entities)
             {
                 entity.Update();
-               // entity.Draw();
+                entity.Draw();
             }
         }
     }

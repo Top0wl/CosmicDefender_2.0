@@ -2,7 +2,7 @@
 
 namespace CosmicDefender
 {
-    public abstract class IDrawableObjects
+    public abstract class IDrawableObjects : IDrawable
     {
         protected Sprite _sprite;
         public abstract void Update();
