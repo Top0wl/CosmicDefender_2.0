@@ -21,7 +21,6 @@ namespace CosmicDefender
             _window.Closed += Window_Closed;
             _window.Resized += Win_Resized;
         }
-
         public RenderWindow getWindow()
         {
             return _window;
@@ -46,7 +45,7 @@ namespace CosmicDefender
 
         public void Update()
         {
-            _window.DispatchEvents();                                            //Cобираем ивенты
+            _window.DispatchEvents();   //Cобираем ивенты
             _window.Display();
             _window.Clear();
         }

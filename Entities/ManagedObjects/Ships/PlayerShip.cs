@@ -14,8 +14,8 @@ namespace CosmicDefender
             _sprite = new Sprite(ShipSprite);
             _coords = Coords;
             _speed = new Vector2f(Velocity, Velocity);
-            _guns = new Gun(TypeOfGun);
-            _guns = new Trajectory(_guns);
+            Guns = new Gun(TypeOfGun);
+            Guns = new Trajectory(Guns);
             _coords = new Vector2f(200, 200);
             _sprite.Position = _coords;
             _name = "PlayerShip";
@@ -26,7 +26,7 @@ namespace CosmicDefender
             _sprite = new Sprite(ShipSprite);
             _coords = Coords;
             _speed = new Vector2f(Velocity, Velocity);
-            _guns = gun;
+            Guns = gun;
             _coords = new Vector2f(200, 200);
             _sprite.Position = _coords;
             _name = "PlayerShip";
@@ -35,10 +35,10 @@ namespace CosmicDefender
         public override void Update()
         {
             UpdateRotation();
-            _guns.Update();
+            Guns.Update();
             if (Mouse.IsButtonPressed(Mouse.Button.Left))
             {
-                _guns.Shot();
+                Guns.Shot();
             }
         }
 
@@ -60,7 +60,7 @@ namespace CosmicDefender
             float rotat = (float)((Math.Atan2(Rotate.Y, Rotate.X) * 180 / Math.PI) - 90);
             //Поворачиваем
             _sprite.Rotation = rotat;
-            _guns.Rotation = Rotate;
+            Guns.Rotation = Rotate;
         }
     }
 }

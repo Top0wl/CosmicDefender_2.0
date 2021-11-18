@@ -1,7 +1,8 @@
 ﻿namespace CosmicDefender.FactoryMethod
 {
-    public class Factory
+    public abstract class Factory
     {
-        
+        public abstract Entity createEntity();
+        public abstract void Log();
     }
 }

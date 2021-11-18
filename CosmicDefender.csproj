@@ -74,8 +74,12 @@
     <Compile Include="Entities\ManagedObjects\Ships\EnemyShip.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\PlayerShip.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\Ship.cs" />
-    <Compile Include="FactoryMethod\Creator.cs" />
+    <Compile Include="FactoryMethod\AbstractFactory.cs" />
+    <Compile Include="FactoryMethod\EnemyFactory.cs" />
     <Compile Include="FactoryMethod\Factory.cs" />
+    <Compile Include="FactoryMethod\FactoryProvider.cs" />
+    <Compile Include="FactoryMethod\Level1Factory.cs" />
+    <Compile Include="FactoryMethod\PlayerFactory.cs" />
     <Compile Include="FactoryShips.cs" />
     <Compile Include="GameLevel.cs" />
     <Compile Include="Handlers\GameManager.cs" />

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CosmicDefender.FactoryMethod;
 
 
 namespace CosmicDefender
@@ -27,9 +28,26 @@ namespace CosmicDefender
             #endregion
 
             Content content = new Content();
-            
 
+            Level1Factory factory = new Level1Factory();
+            Entity player = factory.CreatePlayerShip();
+            Entity enemy = factory.CreateEnemyShip();
             
+            
+            Ship obj1 = new EnemyShip("enemy1", new Gun(new MultiShot()));
+            Ship obj2 = obj1.ShallowCopy();
+            Ship obj3 = obj1.DeepCopy();
+            
+            obj1.LogWhoIsThis();
+            obj2.LogWhoIsThis();
+            obj3.LogWhoIsThis();
+            
+            Console.WriteLine("_");
+            
+            obj1.GunsImplement = new DoubleShot();
+            obj1.LogWhoIsThis();
+            obj2.LogWhoIsThis();
+            obj3.LogWhoIsThis();
             
             //Создаём пушку
             Gun gun = new Gun(new SingleShot());
