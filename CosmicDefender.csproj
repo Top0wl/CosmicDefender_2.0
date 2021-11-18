@@ -113,5 +113,8 @@
   <ItemGroup>
     <Folder Include="Entities\PassiveObjects" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClassDiagram.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
