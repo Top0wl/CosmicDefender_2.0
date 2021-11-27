@@ -13,8 +13,8 @@ namespace CosmicDefender
 
         public Bullet(Vector2f coords, Vector2f rotation)
         {
-            this._coords = coords;
-            this._rotation = rotation;
+            this.Coords = coords;
+            this.Rotation = rotation;
             //this._speed = 
         }
     }

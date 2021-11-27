@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\AdapterDmgObjects.cs" />
+    <Compile Include="Builders\Builders\PlayerShipBuilder.cs" />
+    <Compile Include="Builders\Interfaces\IEntityBuilder.cs" />
+    <Compile Include="Builders\Interfaces\IShipBuilder.cs" />
     <Compile Include="Compositors\CompositeEnemy.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Entities\ActiveObjects\ActiveObjects.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Interfaces\IDrawable.cs" />
     <Compile Include="Interfaces\IDrawableObjects.cs" />
     <Compile Include="Iterator\IteratorEntities.cs" />
+    <Compile Include="ObjectPool\Pool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TMP\Gun.cs" />

@@ -23,6 +23,7 @@ namespace CosmicDefender
                 Console.WriteLine($"Объект {child.GetType()} двигается в сторону {ship.GetType()}");
             }
         }
+
         public override void Update()
         {
             

@@ -1,4 +1,5 @@
 ﻿using System;
+using CosmicDefender.ObjectPool;
 
 namespace CosmicDefender
 {
@@ -7,6 +8,11 @@ namespace CosmicDefender
         public void Shot()
         {
             Console.WriteLine("MultiShot");
+        }
+
+        public void Shot(Pool<Bullet> pool)
+        {
+            throw new NotImplementedException();
         }
     }
 }

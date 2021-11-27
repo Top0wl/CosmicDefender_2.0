@@ -8,27 +8,27 @@ namespace CosmicDefender
 {
     public class PlayerShip : Ship
     {
-        public Vector2f _coords;
+        public PlayerShip() { }
         public PlayerShip(Sprite ShipSprite, Vector2f Coords, int Velocity, IGunShot TypeOfGun)
         {
             _sprite = new Sprite(ShipSprite);
-            _coords = Coords;
-            _speed = new Vector2f(Velocity, Velocity);
+            ((Entity) this).Coords = Coords;
+            Speed = new Vector2f(Velocity, Velocity);
             Guns = new Gun(TypeOfGun);
             Guns = new Trajectory(Guns);
-            _coords = new Vector2f(200, 200);
-            _sprite.Position = _coords;
+            ((Entity) this).Coords = new Vector2f(200, 200);
+            _sprite.Position = ((Entity) this).Coords;
             _name = "PlayerShip";
 
         }
         public PlayerShip(Sprite ShipSprite, Vector2f Coords, int Velocity, Gun gun)
         {
             _sprite = new Sprite(ShipSprite);
-            _coords = Coords;
-            _speed = new Vector2f(Velocity, Velocity);
+            ((Entity) this).Coords = Coords;
+            Speed = new Vector2f(Velocity, Velocity);
             Guns = gun;
-            _coords = new Vector2f(200, 200);
-            _sprite.Position = _coords;
+            ((Entity) this).Coords = new Vector2f(200, 200);
+            _sprite.Position = ((Entity) this).Coords;
             _name = "PlayerShip";
 
         }
@@ -55,7 +55,7 @@ namespace CosmicDefender
             //переводим их в игровые
             Vector2f cursorCoors = window.MapPixelToCoords(pixelCoords);
             //Находим вектор между мышью и кораблём
-            Vector2f Rotate = cursorCoors - _coords;
+            Vector2f Rotate = cursorCoors - Coords;
             //Преобразуем
             float rotat = (float)((Math.Atan2(Rotate.Y, Rotate.X) * 180 / Math.PI) - 90);
             //Поворачиваем
