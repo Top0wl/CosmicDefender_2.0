@@ -18,7 +18,6 @@ namespace CosmicDefender
             get => _guns.GunShotImplementation;
             set => _guns.GunShotImplementation = value;
         }
-
         public Ship ShallowCopy()
         {
             return (Ship) this.MemberwiseClone();

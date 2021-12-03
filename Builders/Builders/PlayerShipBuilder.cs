@@ -1,4 +1,5 @@
 ﻿using CosmicDefender.Builders.Interfaces;
+using SFML.Graphics;
 using SFML.System;
 
 namespace CosmicDefender.Builders.Builders
@@ -8,7 +9,11 @@ namespace CosmicDefender.Builders.Builders
         private Ship _ship;
         public PlayerShipBuilder() => _ship = new PlayerShip();
         public Entity Build() => _ship;
-        
+        public IShipBuilder SetSprite(Sprite sprite)
+        {
+            _ship._sprite = new Sprite(sprite);
+            return this;
+        }
         public IEntityBuilder SetCoords(Vector2f Coords)
         {
             _ship.Coords = Coords;

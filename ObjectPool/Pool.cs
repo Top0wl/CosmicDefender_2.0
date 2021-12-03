@@ -25,7 +25,7 @@ namespace CosmicDefender.ObjectPool
         }
         private T CreateObject(bool isActiveByDefault = false)
         {
-            T createdObject = new T();
+            T createdObject = (T) _prefab.ShallowCopy();
             createdObject.SetActive(isActiveByDefault);
             this._pool.Add(createdObject);
             return createdObject;

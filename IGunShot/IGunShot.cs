@@ -1,4 +1,5 @@
 ﻿using CosmicDefender.ObjectPool;
+using SFML.System;
 
 namespace CosmicDefender
 {
@@ -6,5 +7,6 @@ namespace CosmicDefender
     {
         void Shot();
         void Shot(Pool<Bullet> pool);
+        void Shot(Pool<Bullet> pool, Vector2f coords, Vector2f rotation);
     }
 }

@@ -4,8 +4,9 @@ namespace CosmicDefender
 {
     public abstract class IDrawableObjects : IDrawable
     {
-        protected Sprite _sprite;
-        public abstract void Update();
+        public Sprite _sprite { get; set; }
+        public abstract void Update(float time);
+        public virtual void Update() { }
 
         public void Draw()
         {

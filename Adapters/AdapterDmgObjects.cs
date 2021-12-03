@@ -15,5 +15,10 @@ namespace CosmicDefender
         {
             Console.WriteLine($"Объект {_ship.GetType()} наносит урон объекту {Object2.GetType()} в размере {_damage}");
         }
+
+        public override void Update(float time)
+        {
+            
+        }
     }
 }

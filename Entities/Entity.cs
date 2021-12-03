@@ -8,13 +8,20 @@ namespace CosmicDefender
     {
         //Поля
         #region Fields
-        
-        protected Vector2f _coords;
+        protected Vector2f _coords
+        {
+            get { return this._sprite.Position; }
+            set { this._sprite.Position = value; }
+        }
         protected Vector2f _speed;
+        protected float _acceleration = 0.3f;
         protected Vector2f _rotation;
         protected String _name;
+        
+        
         protected bool IsActive = true;
         protected int _health;
+        protected float speed;
         
         #endregion
         
@@ -30,6 +37,11 @@ namespace CosmicDefender
         {
             get => _speed;
             set => _speed = value;
+        }
+        public float Acceleration
+        {
+            get => _acceleration;
+            set => _acceleration = value;
         }
         public Vector2f Rotation
         {
@@ -57,6 +69,8 @@ namespace CosmicDefender
 
         #endregion
         
+        
+        
         public enum TypeEntities
         {
             //PlayerShips
@@ -67,6 +81,12 @@ namespace CosmicDefender
             EnemyShip_Simple,
             EnemyShip_Boss_Level1,
         }
+        
+        public Entity ShallowCopy()
+        {
+            return (Entity) this.MemberwiseClone();
+        }
+
     }
     
 }

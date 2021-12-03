@@ -33,12 +33,10 @@ namespace CosmicDefender
             }
             return _instance;
         }
-        
         #region Animation
         
 
         #endregion
-
         #region Sprites
 
         private Sprite sAnimAsteroid1;
@@ -120,7 +118,6 @@ namespace CosmicDefender
 
 
         #endregion
-
         #region Textures
         private Texture tAnimAsteroid1;
 
@@ -198,7 +195,6 @@ namespace CosmicDefender
         private Texture tBackgroundLevel6;
 
         #endregion
-
         #region Images
 
         private Image iAnimAsteroid1;
@@ -280,8 +276,6 @@ namespace CosmicDefender
         private Image iBackgroundLevel5;
         private Image iBackgroundLevel6;
         #endregion
-
-
         public void Load()
         {
             #region Font
@@ -482,7 +476,10 @@ namespace CosmicDefender
             tShip2 = new Texture(iShip2);
             tShip2.Smooth = true;
             sShip2 = new Sprite(tShip2);
-
+            sShip2.Scale = new Vector2f(0.4F, 0.4F);
+            sShip2.Origin = new Vector2f(sShip2.Texture.Size.X / 2, sShip2.Texture.Size.Y / 2);
+            
+            
             #endregion
 
             #region Ship3
@@ -949,8 +946,8 @@ namespace CosmicDefender
             #endregion
 
         }
-        #region Getters
         
+        #region Getters
         public Sprite GetsAnimAsteroid1()
         {
             return sAnimAsteroid1;

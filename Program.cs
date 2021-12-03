@@ -26,42 +26,23 @@ namespace CosmicDefender
                 Console.WriteLine("Singleton works, both variables contain the same instance.");
             }
             #endregion
-
+            
             Content content = new Content();
 
-            Level1Factory factory = new Level1Factory();
-            Entity player = factory.CreatePlayerShip();
-            Entity enemy = factory.CreateEnemyShip();
-            
-            
-            Ship obj1 = new EnemyShip("enemy1", new Gun(new MultiShot()));
-            Ship obj2 = obj1.ShallowCopy();
-            Ship obj3 = obj1.DeepCopy();
-            
-            obj1.LogWhoIsThis();
-            obj2.LogWhoIsThis();
-            obj3.LogWhoIsThis();
-            
-            Console.WriteLine("_");
-            
-            obj1.GunsImplement = new DoubleShot();
-            obj1.LogWhoIsThis();
-            obj2.LogWhoIsThis();
-            obj3.LogWhoIsThis();
-            
+            //Ship Player2 = new PlayerShip();
+
             //Создаём пушку
             Gun gun = new Gun(new SingleShot());
             //Обшиваем эту пушку траекторией
             gun = new Trajectory(gun);
             //Создаём игрока и ему присваиваем пушку
-            Ship Player = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, gun);
+            //Ship Player = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, gun);
+
+
 
             while (Window.getInstance().getWindow().IsOpen)
             {
-                Player.Update();
                 gameManager.Update();
-                
-                
                 
                 //.Update();
                 //FactoryEntities fE = new FactoryEntities();

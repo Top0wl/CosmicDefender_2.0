@@ -1,5 +1,6 @@
 ﻿using System;
 using CosmicDefender.ObjectPool;
+using SFML.System;
 
 namespace CosmicDefender
 {
@@ -11,6 +12,11 @@ namespace CosmicDefender
         }
 
         public void Shot(Pool<Bullet> pool)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Shot(Pool<Bullet> pool, Vector2f coords, Vector2f rotation)
         {
             throw new NotImplementedException();
         }

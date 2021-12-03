@@ -20,7 +20,7 @@ namespace CosmicDefender
             this._gunShotImplementation = gunShotImplementation;
         }
 
-        public override void Update()
+        public override void Update(float time)
         {
             Console.WriteLine(_ship.Name + " + " + _name);
             _ship.Update();

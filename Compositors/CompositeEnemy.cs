@@ -24,7 +24,7 @@ namespace CosmicDefender
             }
         }
 
-        public override void Update()
+        public override void Update(float time)
         {
             
         }

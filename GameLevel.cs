@@ -23,7 +23,7 @@ namespace CosmicDefender
             this._countEntitiesOnMap = countEntitiesOnMap;
             this._allCountEntities = allCountEntities;
         }
-        public override void Update()
+        public override void Update(float time)
         {
             
         }
