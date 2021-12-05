@@ -30,13 +30,7 @@ namespace CosmicDefender
             Content content = new Content();
 
             //Ship Player2 = new PlayerShip();
-
-            //Создаём пушку
-            Gun gun = new Gun(new SingleShot());
-            //Обшиваем эту пушку траекторией
-            gun = new Trajectory(gun);
-            //Создаём игрока и ему присваиваем пушку
-            //Ship Player = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, gun);
+            
 
 
 

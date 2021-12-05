@@ -27,7 +27,7 @@ namespace CosmicDefender
         {
             //Считываем координаты мыши
             Vector2f cursorCoors = Window.getInstance().getWindow().MapPixelToCoords(Mouse.GetPosition(Window.getInstance().getWindow()));
-            var tmp= cursorCoors - Rotation;
+            var tmp = cursorCoors ;
             
             _trajectory = new Vertex[]
             {

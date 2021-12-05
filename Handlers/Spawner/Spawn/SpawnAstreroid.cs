@@ -7,7 +7,7 @@ namespace CosmicDefender
     {
         public void Spawn(List<Entity> entities)
         {
-            entities.Add(new EnemyShip());
+            //entities.Add(new EnemyShip());
             Console.WriteLine("Спавним астероид");
         }
     }

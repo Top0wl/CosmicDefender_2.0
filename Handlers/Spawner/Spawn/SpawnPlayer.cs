@@ -12,9 +12,9 @@ namespace CosmicDefender
             Content content = new Content();
             content.Load();
             //
-            PlayerShip ship = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot());
+            //PlayerShip ship = new PlayerShip(content.GetShip1(), new Vector2f(0, 0), 100, new SingleShot());
             Console.WriteLine("Спавним корабль игрока");
-            entities.Add(ship);
+            //entities.Add(ship);
         }
     }
 }

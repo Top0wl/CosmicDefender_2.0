@@ -1,4 +1,5 @@
 ﻿using System;
+using SFML.Graphics;
 
 namespace CosmicDefender
 {

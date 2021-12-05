@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using SFML.Graphics;
+using SFML.System;
 
 namespace CosmicDefender.ObjectPool
 {
@@ -13,11 +15,11 @@ namespace CosmicDefender.ObjectPool
         {
             this._prefab = _prefab;
             this.CreatePool(count);
+            _autoExpand = true;
         }
         private void CreatePool(int count)
         {
             this._pool = new List<T>();
-            
             for (int i = 0; i < count; i++)
             {
                 this.CreateObject();
@@ -25,8 +27,8 @@ namespace CosmicDefender.ObjectPool
         }
         private T CreateObject(bool isActiveByDefault = false)
         {
-            T createdObject = (T) _prefab.ShallowCopy();
-            createdObject.SetActive(isActiveByDefault);
+            T createdObject = (T) _prefab.DeepCopy();
+            createdObject.IsActive = isActiveByDefault;
             this._pool.Add(createdObject);
             return createdObject;
         }
@@ -40,10 +42,10 @@ namespace CosmicDefender.ObjectPool
             foreach (var item in _pool)
             {
                 //Если объект отключен, то его можно вернуть
-                if (item.GetActive() == false)
+                if (item.IsActive == false)
                 {
                     element = item;
-                    item.SetActive(true);
+                    item.IsActive = true;
                     return true;
                 }
             }

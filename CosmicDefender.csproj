@@ -68,6 +68,7 @@
     <Compile Include="Content.cs" />
     <Compile Include="Controllers\ObjectManager.cs" />
     <Compile Include="Entities\ActiveObjects\ActiveObjects.cs" />
+    <Compile Include="Entities\ActiveObjects\Asteroid.cs" />
     <Compile Include="Entities\ActiveObjects\Bullet.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ManagedObjects\ManagedObjects.cs" />
@@ -79,12 +80,8 @@
     <Compile Include="Entities\ManagedObjects\Ships\PlayerShip.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\Ship.cs" />
     <Compile Include="FactoryMethod\AbstractFactory.cs" />
-    <Compile Include="FactoryMethod\EnemyFactory.cs" />
     <Compile Include="FactoryMethod\Factory.cs" />
-    <Compile Include="FactoryMethod\FactoryProvider.cs" />
     <Compile Include="FactoryMethod\Level1Factory.cs" />
-    <Compile Include="FactoryMethod\PlayerFactory.cs" />
-    <Compile Include="FactoryShips.cs" />
     <Compile Include="GameLevel.cs" />
     <Compile Include="Handlers\Collider.cs" />
     <Compile Include="Handlers\GameManager.cs" />
@@ -104,6 +101,7 @@
     <Compile Include="IGunShot\SingleShot.cs" />
     <Compile Include="Interfaces\IDrawable.cs" />
     <Compile Include="Interfaces\IDrawableObjects.cs" />
+    <Compile Include="Interfaces\IEntityStats.cs" />
     <Compile Include="Iterator\IteratorEntities.cs" />
     <Compile Include="ObjectPool\Pool.cs" />
     <Compile Include="Program.cs" />
@@ -116,6 +114,7 @@
     <Compile Include="TMP\IsCollide.cs" />
     <Compile Include="TMP\ParticleEngine.cs" />
     <Compile Include="TMP\ParticleEngineSystem.cs" />
+    <Compile Include="Visitor\IEntityVisitor.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,15 +2,10 @@
 
 namespace CosmicDefender
 {
-    public abstract class IDrawableObjects : IDrawable
+    public interface IDrawableObjects
     {
         public Sprite _sprite { get; set; }
-        public abstract void Update(float time);
-        public virtual void Update() { }
-
-        public void Draw()
-        {
-            Window.getInstance().getWindow().Draw(_sprite);
-        }
+        public void Update(float time);
+        public void Draw();
     }
 }

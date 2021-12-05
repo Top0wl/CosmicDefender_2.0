@@ -15,7 +15,6 @@ namespace CosmicDefender
         public void Shot(Pool<Bullet> pool)
         {
             Bullet bullet = pool.GetFreeElement();
-            
             ObjectManager.GetInstance().AddEntity(bullet);
             //TODO: Задать билдер пули и прописать её логику и траекторию
         }

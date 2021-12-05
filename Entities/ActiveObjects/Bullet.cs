@@ -1,55 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using CosmicDefender.Controllers;
+using CosmicDefender.Visitor;
+using SFML.Graphics;
 using SFML.System;
 
 namespace CosmicDefender
 {
     public class Bullet : ActiveObjects
     {
-        private Vector2f _coords
+        public Bullet() { }
+        public Bullet(Sprite sprite, float velocity, float acceleration, string name, float health) 
+            : base(sprite, velocity, acceleration, name, health)
         {
-            get { return this._sprite.Position; }
-            set { this._sprite.Position = value; }
-        }
-
-        public Bullet()
-        {
-            Collider.getInstance().OnCollide += Collide;
-        }
-        public Bullet(Vector2f coords, Vector2f rotation, float speed)
-        {
-            this._sprite = Content.getInstance().GetBullet();
             this._sprite.Scale = new Vector2f(0.2f, 0.2f);
-            this._coords = coords;
-            this._rotation = rotation;
-            this.speed = speed;
             Collider.getInstance().OnCollide += Collide;
         }
         public override void Update(float time)
         {
+            Force();
+            CheckPostitions();
             UpdateSprite();
-            var NormalizeRotation = Normalization(_rotation);
-            this._coords += speed * NormalizeRotation;
-            
+            base.Update(time);
         }
-
         private void UpdateSprite()
         {
             var RotateAngle = (float)((Math.Atan2(Rotation.Y, Rotation.X) * 180 / Math.PI) - 90);
             _sprite.Rotation = RotateAngle;
         }
-
         void Collide(Entity ent1, Entity ent2)
         {
-            Console.WriteLine($"Произошла колизия между объектом {ent1.GetType()} и {ent2.GetType()}");
-        }
-        
-            private Vector2f Normalization(Vector2f vector)
+            //Ent1 - объект 1
+            //Ent2 - объект 2
+            //Кто.Accept(кого)
+            if (ent1.GetType() == this.GetType())
             {
-                float d = (float)Math.Sqrt((vector.X) * (vector.X) + (vector.Y) * (vector.Y));
-                vector = vector / (10 * d);
-                return vector;
+                if (ent2.GetType() == typeof(EnemyShip))
+                {
+                    Console.WriteLine("log");
+                    ent2.Accept(ent1);
+                    ent1.Accept(ent2);
+                }
             }
+            Console.WriteLine($"Произошла коллизия между объектом {ent1.GetType()} и {ent2.GetType()}");
+        }
+        void CheckPostitions()
+        {
+            if (Coords.X < 0 || Coords.X > 1280 || Coords.Y < 0 || Coords.Y > 720)
+            {
+                this.IsActive = false;
+                ObjectManager.GetInstance().DeleteEntity(this);
+            }
+        }
+        public override void Accept(IEntityVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

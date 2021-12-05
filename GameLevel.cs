@@ -5,6 +5,8 @@ namespace CosmicDefender
 {
     public class GameLevel : IDrawableObjects
     {
+        public Sprite _sprite { get; set; }
+        
         private int _countEntitiesOnMap = 30;
         private int _allCountEntities = 150;
         public int CountEntitiesOnMap
@@ -23,9 +25,15 @@ namespace CosmicDefender
             this._countEntitiesOnMap = countEntitiesOnMap;
             this._allCountEntities = allCountEntities;
         }
-        public override void Update(float time)
+        
+        public void Update(float time)
         {
             
+        }
+
+        public void Draw()
+        {
+            Window.getInstance().getWindow().Draw(_sprite);
         }
     }
 }

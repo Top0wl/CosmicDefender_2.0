@@ -2,6 +2,7 @@
 using System.Linq;
 using CosmicDefender.Builders.Builders;
 using CosmicDefender.Controllers;
+using CosmicDefender.FactoryMethod;
 using SFML.System;
 
 namespace CosmicDefender
@@ -16,6 +17,10 @@ namespace CosmicDefender
         private GameLevel _level;
         private Content _content;
         private Collider _collider;
+
+        
+        
+        private AbstractFactory AF = new Level1Factory();
         
         public GameManager()
         {
@@ -23,20 +28,17 @@ namespace CosmicDefender
             _content.Load();
             _objectManager  = ObjectManager.GetInstance();
             this._level = new GameLevel(_content.GetBackgroundLevel1(), 30, 100);
-            //SpawnerEntities realSpawnerEntities = new SpawnerEntities();
-            //this._spawner = new ProxySpawnerEntities(realSpawnerEntities, _level, _entities);
             this._collider = new Collider(_entities);
+
+
+            Entity Player = AF.CreatePlayerShip();
+            Player.Coords = new Vector2f(100, 100);
+            Entity Enemy = AF.CreateEnemyShip();
+            Enemy.Coords = new Vector2f(300, 300);
             
-            //Создаём пушку
-            Gun gun = new Gun(new SingleShot());
-            //Обшиваем эту пушку траекторией
-            gun = new Trajectory(gun);
-            //Создаём игрока и ему присваиваем пушку
             
-            Ship Player = new PlayerShip(_content.GetShip1(), new Vector2f(100, 100), 0, gun);
-            //Ship Enemy = new EnemyShip(_content.GetsShootShip(), new Vector2f(500, 500), 10, new DoubleShot());
             _entities.Add(Player);
-            //_entities.Add(Enemy);
+            _entities.Add(Enemy);
         }
         public void Update()
         {
@@ -46,7 +48,7 @@ namespace CosmicDefender
             
             
             _collider.Update();
-            _level.Update();
+            _level.Update(time);
             _level.Draw();
 
             for (int i = 0; i < _entities.Count; i++)

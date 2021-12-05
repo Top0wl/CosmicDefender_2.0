@@ -41,7 +41,7 @@ namespace CosmicDefender.Builders.Builders
         }
         public IShipBuilder SetGun(Gun gun)
         {
-            _ship.Guns = gun;
+            _ship.Weapon = gun;
             return this;
         }
     }
