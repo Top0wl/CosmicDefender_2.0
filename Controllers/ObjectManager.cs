@@ -30,6 +30,17 @@ namespace CosmicDefender.Controllers
         {
             return _entities;
         }
+        public Entity GetPlayer()
+        {
+            foreach (var ent in _entities)
+            {
+                if (ent.GetType() == typeof(PlayerShip))
+                {
+                    return ent;
+                }
+            }
+            return null;
+        }
     }
     
 }

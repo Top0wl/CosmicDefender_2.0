@@ -432,6 +432,8 @@ namespace CosmicDefender
             tBullet = new Texture(iBullet);
             tBullet.Smooth = true;
             sBullet = new Sprite(tBullet);
+            sBullet.Scale = new Vector2f(0.2f, 0.2f);
+            sBullet.Origin = new Vector2f(iBullet.Size.X / 2, iBullet.Size.Y / 2);
 
             #endregion
 
@@ -488,7 +490,9 @@ namespace CosmicDefender
             tShip3 = new Texture(iShip3);
             tShip3.Smooth = true;
             sShip3 = new Sprite(tShip3);
-
+            sShip3.Scale = new Vector2f(0.4F, 0.4F);
+            sShip3.Origin = new Vector2f(sShip3.Texture.Size.X / 2, sShip3.Texture.Size.Y / 2);
+            
             #endregion
 
             #region Ship4
@@ -497,6 +501,8 @@ namespace CosmicDefender
             tShip4 = new Texture(iShip4);
             tShip4.Smooth = true;
             sShip4 = new Sprite(tShip4);
+            sShip4.Scale = new Vector2f(0.4F, 0.4F);
+            sShip4.Origin = new Vector2f(sShip4.Texture.Size.X / 2, sShip4.Texture.Size.Y / 2);
 
             #endregion
 
@@ -506,6 +512,8 @@ namespace CosmicDefender
             tShip5 = new Texture(iShip5);
             tShip5.Smooth = true;
             sShip5 = new Sprite(tShip5);
+            sShip5.Scale = new Vector2f(0.4F, 0.4F);
+            sShip5.Origin = new Vector2f(sShip5.Texture.Size.X / 2, sShip5.Texture.Size.Y / 2);
 
             #endregion
 
@@ -515,7 +523,9 @@ namespace CosmicDefender
             tShip6 = new Texture(iShip6);
             tShip6.Smooth = true;
             sShip6 = new Sprite(tShip6);
-
+            sShip6.Scale = new Vector2f(0.4F, 0.4F);
+            sShip6.Origin = new Vector2f(sShip6.Texture.Size.X / 2, sShip6.Texture.Size.Y / 2);
+            
             #endregion
 
             #region Ship7
@@ -524,6 +534,8 @@ namespace CosmicDefender
             tShip7 = new Texture(iShip7);
             tShip7.Smooth = true;
             sShip7 = new Sprite(tShip7);
+            sShip7.Scale = new Vector2f(0.4F, 0.4F);
+            sShip7.Origin = new Vector2f(sShip7.Texture.Size.X / 2, sShip7.Texture.Size.Y / 2);
 
             #endregion
 
@@ -533,6 +545,8 @@ namespace CosmicDefender
             tShip8 = new Texture(iShip8);
             tShip8.Smooth = true;
             sShip8 = new Sprite(tShip8);
+            sShip8.Scale = new Vector2f(0.4F, 0.4F);
+            sShip8.Origin = new Vector2f(sShip8.Texture.Size.X / 2, sShip8.Texture.Size.Y / 2);
 
             #endregion
 
@@ -542,6 +556,8 @@ namespace CosmicDefender
             tShip9 = new Texture(iShip9);
             tShip9.Smooth = true;
             sShip9 = new Sprite(tShip9);
+            sShip9.Scale = new Vector2f(0.4F, 0.4F);
+            sShip9.Origin = new Vector2f(sShip9.Texture.Size.X / 2, sShip9.Texture.Size.Y / 2);
 
             #endregion
 
@@ -947,6 +963,7 @@ namespace CosmicDefender
 
         }
         
+        
         #region Getters
         public Sprite GetsAnimAsteroid1()
         {
@@ -1291,6 +1308,5 @@ namespace CosmicDefender
         #endregion
 
         #endregion
-
     }
 }

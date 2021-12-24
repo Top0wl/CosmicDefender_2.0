@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace CosmicDefender
 {
-    public class CompositeEnemy : Ship
+    public class CompositeEnemy : Handlers
     {
         private List<Ship> _children = new List<Ship>();
-        
         public void Add(Ship ship)
         {
             this._children.Add(ship);
@@ -15,7 +14,6 @@ namespace CosmicDefender
         {
             this._children.Add(ship);
         }
-
         public void MoveTo(Ship ship)
         {
             foreach (var child in _children)
@@ -23,10 +21,9 @@ namespace CosmicDefender
                 Console.WriteLine($"Объект {child.GetType()} двигается в сторону {ship.GetType()}");
             }
         }
-
-        public override void Update(float time)
+        public void Update()
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

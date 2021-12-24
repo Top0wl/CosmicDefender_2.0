@@ -9,15 +9,15 @@ namespace CosmicDefender
     {
         public ActiveObjects() { }
         
-        public ActiveObjects(Sprite sprite, float velocity, float acceleration, string name, 
-            float health) : base(sprite, velocity, acceleration, name, health)
+        public ActiveObjects(Sprite sprite, float maxSpeed, float acceleration, string name, 
+            float health) : base(sprite, maxSpeed, acceleration, name, health)
         {
             
         }
 
-        public virtual void Damage(Entity Object1, Entity Object2, int _damage)
+        public virtual void Damage(Entity Object1)
         {
-            Console.WriteLine($"Объект {Object1.GetType()} наносит урон объекту {Object2.GetType()} в размере {_damage}");
+            Object1.Health -= this.Dmg;
         }
     }
 }

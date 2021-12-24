@@ -28,19 +28,19 @@ namespace CosmicDefender
         public Pool<Bullet> BulletsPool { get; private set; }
         
         public Gun() { }
-        public Gun(IGunShot Type, Sprite bulletSprite, float bulletVelocity, float bulletAcceleration)
+        public Gun(IGunShot Type, Sprite bulletSprite, float bulletVelocity, float bulletAcceleration, float dmg)
         {
             this.GunShotImplementation = Type;
             this.BulletSprite = bulletSprite;
             this.BulletVelocity = bulletVelocity;
             this.BulletAcceleration = bulletAcceleration;
             this.BulletsPool = new Pool<Bullet>(new Bullet(BulletSprite, 
-                    BulletVelocity,BulletAcceleration,"Bullet", 100), 2);
+                    BulletVelocity,BulletAcceleration,"Bullet", 100, dmg), 2);
         }
-        public void Shot()
+        public virtual void Shot()
         {
             //Изменить координаты coords, чтобы пули вылетали не из корабля а с переди
-            GunShotImplementation.Shot(BulletsPool, CoordsSpawnBullet, ship.Rotation);
+            GunShotImplementation.Shot(BulletsPool, CoordsSpawnBullet, ship.Rotation, ship.Speed);
         }
         public virtual void Update()
         {

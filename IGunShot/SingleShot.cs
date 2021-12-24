@@ -7,6 +7,8 @@ namespace CosmicDefender
 {
     public class SingleShot : IGunShot
     {
+        private IGunShot _gunShotImplementation;
+
         public void Shot()
         {
             throw new NotImplementedException();
@@ -21,10 +23,21 @@ namespace CosmicDefender
 
         public void Shot(Pool<Bullet> pool, Vector2f coords, Vector2f rotation)
         {
-            Bullet bullet = pool.GetFreeElement();
+            throw new NotImplementedException();
+        }
 
+        public void Shot(Pool<Bullet> pool, Vector2f coords, Vector2f rotation, Vector2f speed)
+        {
+            Bullet bullet = pool.GetFreeElement();
+            bullet.EnableCollide();
+            
             bullet.Coords = coords;
             bullet.Rotation = rotation;
+            bullet.Speed = new Vector2f(0,0);
+            bullet.MaxSpeed = bullet.DefaultMaxSpeed;
+            
+            bullet.Speed += speed;
+            bullet.MaxSpeed += bullet.LengthVector(speed);
             
             ObjectManager.GetInstance().AddEntity(bullet);
         }

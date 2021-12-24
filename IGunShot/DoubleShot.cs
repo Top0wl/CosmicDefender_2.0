@@ -20,5 +20,10 @@ namespace CosmicDefender
         {
             throw new NotImplementedException();
         }
+
+        public void Shot(Pool<Bullet> pool, Vector2f coords, Vector2f rotation, Vector2f speed)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

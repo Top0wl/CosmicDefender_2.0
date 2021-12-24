@@ -6,8 +6,8 @@ namespace CosmicDefender
     {
         protected Ship _ship;
 
-        protected ShipDecorator(Sprite sprite, float velocity, float acceleration, string name, float health, Gun weapon) :
-            base(sprite, velocity, acceleration, name, health, weapon)
+        protected ShipDecorator(Sprite sprite, float maxSpeed, float acceleration, string name, float health, Gun weapon, float firingRate) :
+            base(sprite, maxSpeed, acceleration, name, health, weapon, firingRate)
         {
             
         }

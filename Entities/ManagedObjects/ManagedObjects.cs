@@ -5,8 +5,8 @@ namespace CosmicDefender
 {
     public abstract class ManagedObjects : Entity
     {
-        protected ManagedObjects(Sprite sprite, float velocity, float acceleration, string name, float health) 
-            : base(sprite, velocity, acceleration, name, health)
+        protected ManagedObjects(Sprite sprite, float maxSpeed, float acceleration, string name, float health) 
+            : base(sprite, maxSpeed, acceleration, name, health)
         {
             
         }

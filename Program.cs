@@ -3,10 +3,12 @@ using SFML.System;
 using SFML.Window;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CosmicDefender.FactoryMethod;
+using CosmicDefender.Menu;
 
 
 namespace CosmicDefender
@@ -17,32 +19,22 @@ namespace CosmicDefender
         {
             Clock clock = new Clock();
             GameManager gameManager = new GameManager();
-            
+            Menu.Menu menuManager = new Menu.Menu(gameManager);
+
             #region Singleton
             Window window = Window.getInstance();
-            Window window2 = Window.getInstance();
-            if (window == window2)
-            {
-                Console.WriteLine("Singleton works, both variables contain the same instance.");
-            }
             #endregion
             
-            Content content = new Content();
-
-            //Ship Player2 = new PlayerShip();
-            
-
-
-
             while (Window.getInstance().getWindow().IsOpen)
             {
-                gameManager.Update();
-                
-                //.Update();
-                //FactoryEntities fE = new FactoryEntities();
-                //Entity player = fE.ProduceEntity(Entity.TypeEntities.PlayerShip_1);
-                //Console.WriteLine($"Создан объект типа {player.GetType()}");
-                
+                if (menuManager.IsOpen)
+                {
+                    menuManager.Update();
+                }
+                else
+                {
+                    gameManager.Update();
+                }
                 Window.getInstance().Update();
             }
         }

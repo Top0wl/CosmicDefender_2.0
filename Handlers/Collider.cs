@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CosmicDefender.Visitor;
 using SFML.Graphics;
 using SFML.System;
@@ -43,16 +44,24 @@ namespace CosmicDefender
         }
         public void Update()
         {
-            for (int i = 0; i < _entities.Count; i++)
+            _entities.Reverse();
+            var ents = new List<Entity>(_entities);
+            _entities.Reverse();
+            foreach (var item1 in ents.ToList())
             {
-                for (int j = 0; j < _entities.Count; j++)
+                foreach (var item2 in ents.ToList())
                 {
-                    if (i != j)
+                    if (item1 != item2)
                     {
-                        if (IsCollide(_entities[i]._sprite, _entities[j]._sprite))
+                        if (IsCollide(item1._sprite, item2._sprite))
                         {
                             //Если коллизия произошла, то сделать событие
-                            OnCollide?.Invoke(_entities[i], _entities[j]);
+                            if (item1.GetType() == typeof(EnemyShip) && item2.GetType() == typeof(EnemyShip))
+                            {
+                            }
+                            else 
+                            OnCollide?.Invoke(item1, item2);
+                            //Collide(_entities[i], _entities[j]);
                         }
                     }
                 }

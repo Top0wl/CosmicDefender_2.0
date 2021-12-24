@@ -5,7 +5,7 @@ using SFML.System;
 
 namespace CosmicDefender.ObjectPool
 {
-    public class Pool<T> where T : Entity, new()
+    public class Pool<T> where T : Bullet, new()
     {
         public T _prefab { get; }
         public bool _autoExpand { get; set; }
@@ -54,6 +54,7 @@ namespace CosmicDefender.ObjectPool
         }
         public T GetFreeElement()
         {
+            UpdatePool();
             if (this.HasFreeElement(out T element))
                 return element;
             if (this._autoExpand)
@@ -61,6 +62,16 @@ namespace CosmicDefender.ObjectPool
 
             throw new Exception($"There is no free elements in pool of type {typeof(T)}");
 
+        }
+        private void UpdatePool()
+        {
+            foreach (var item in _pool)
+            {
+                if (item.IsActive == false)
+                {
+                    
+                }
+            }
         }
     }
 }

@@ -1,10 +1,13 @@
 ﻿using System.Threading;
+using CosmicDefender.FactoryMethod;
 using SFML.Graphics;
 
 namespace CosmicDefender
 {
     public class GameLevel : IDrawableObjects
     {
+        public PlayerShip PlayerShip;
+        public AbstractFactory AF;
         public Sprite _sprite { get; set; }
         
         private int _countEntitiesOnMap = 30;
@@ -19,8 +22,9 @@ namespace CosmicDefender
             get => _allCountEntities;
             //set => _allCountEntities = value;
         }
-        public GameLevel(Sprite sprite, int countEntitiesOnMap, int allCountEntities)
+        public GameLevel(Sprite sprite, int countEntitiesOnMap, int allCountEntities, AbstractFactory af)
         {
+            this.AF = af;
             this._sprite = sprite;
             this._countEntitiesOnMap = countEntitiesOnMap;
             this._allCountEntities = allCountEntities;
@@ -28,7 +32,7 @@ namespace CosmicDefender
         
         public void Update(float time)
         {
-            
+            Draw();
         }
 
         public void Draw()
