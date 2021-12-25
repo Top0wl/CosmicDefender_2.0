@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using CosmicDefender.Controllers;
 using CosmicDefender.FactoryMethod;
 using SFML.Graphics;
@@ -11,6 +12,8 @@ namespace CosmicDefender.Menu
 {
     public class Menu : Handlers
     {
+        private static Menu _instance;
+        
         private GameManager GameManager;
         
         private PlayerShipFactory af = new PlayerShipFactory();
@@ -25,9 +28,9 @@ namespace CosmicDefender.Menu
         public List<MenuRectButtons> RectButtons = new List<MenuRectButtons>();
         public List<MenuRectShips> RectShips = new List<MenuRectShips>();
         
-        public Menu(GameManager gameManager)
+        public Menu()
         {
-            this.GameManager = gameManager;
+            this.GameManager = GameManager.GetInstance();
             this.SelectShip = af.CreateShip1();
             this.SelectShip._sprite.Position = new Vector2f(640, 360);
             this.SelectShip._sprite.Scale = new Vector2f(1f, 1f);
@@ -39,6 +42,14 @@ namespace CosmicDefender.Menu
             this.LoadRectLevels1();
             this.LoadRectButtons();
             this.LoadRectShips1();
+        }
+        public static Menu GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Menu();
+            }
+            return _instance;
         }
         public void LoadRectButtons()
         {

@@ -12,7 +12,7 @@ namespace CosmicDefender.FactoryMethod
         //TODO: нужно сделать различные конструкторы, чтобы были различные сущности
         public virtual Entity CreateEnemyShip()
         {
-            Entity NewObj = new EnemyShip(Content.getInstance().GetShip2(), 1, 0.1f, "EnemyShip", 100,
+            Entity NewObj = new EnemyShip(Content.getInstance().GetsShootShip(), 1, 0.1f, "EnemyShip", 100,
                 new Gun(new SingleShot(), Content.getInstance().GetBullet(), 2, 1, 1), 
                 0.2f);
             Log(NewObj);

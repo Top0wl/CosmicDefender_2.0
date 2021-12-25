@@ -30,6 +30,12 @@ namespace CosmicDefender.Controllers
         {
             return _entities;
         }
+
+        public void Clear()
+        {
+            _entities.Clear();
+        }
+
         public Entity GetPlayer()
         {
             foreach (var ent in _entities)

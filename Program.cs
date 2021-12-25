@@ -18,8 +18,8 @@ namespace CosmicDefender
         static void Main(string[] args)
         {
             Clock clock = new Clock();
-            GameManager gameManager = new GameManager();
-            Menu.Menu menuManager = new Menu.Menu(gameManager);
+            GameManager gameManager = GameManager.GetInstance();
+            Menu.Menu menuManager = Menu.Menu.GetInstance();
 
             #region Singleton
             Window window = Window.getInstance();

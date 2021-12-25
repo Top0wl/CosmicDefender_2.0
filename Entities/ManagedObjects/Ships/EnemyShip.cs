@@ -45,7 +45,7 @@ namespace CosmicDefender
             //Находим вектор между мышью и кораблём
             Vector2f Rotate = target.Coords - Coords;
             //Преобразуем
-            float rotat = (float)((Math.Atan2(Rotate.Y, Rotate.X) * 180 / Math.PI) - 90);
+            float rotat = (float)((Math.Atan2(Rotate.Y, Rotate.X) * 180 / Math.PI) + 90);
             //Поворачиваем спрайт
             _sprite.Rotation = rotat;
             //Обновляем поворот корабля

@@ -10,6 +10,8 @@ namespace CosmicDefender
 {
     public class GameManager : Handlers
     {
+        private static GameManager _instance;
+        
         private Clock clock = new Clock();
         private ObjectManager _objectManager;
         private List<Entity> _entities => _objectManager.GetEntities();
@@ -17,14 +19,13 @@ namespace CosmicDefender
         public GameLevel _level;
         private Content _content;
         private Collider _collider;
-        
-        private AbstractFactory AF = new Level1Factory();
+
         public GameManager()
         {
             _content = new Content();
             _content.Load();
             _objectManager  = ObjectManager.GetInstance();
-            //this._level = new GameLevel(_content.GetBackgroundLevel1(), 30, 100, new Level1Factory(), );
+            //this._level = new GameLevel(_content.GetBackgroundLevel1(), 30, 100, new Level1Factory(), new Boss());
             this._collider = new Collider(_entities);
             this._spawner = new SpawnerEntities(this);
 
@@ -55,6 +56,14 @@ namespace CosmicDefender
             //_entities.Add(Player);
             //_entities.Add(Enemy);
         }
+        public static GameManager GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new GameManager();
+            }
+            return _instance;
+        }
         public void Update()
         {
             float time = Time();
@@ -69,6 +78,7 @@ namespace CosmicDefender
                 entity.Update(time);
                 entity.Draw();      
             }
+            
         }
         private float Time()
         {

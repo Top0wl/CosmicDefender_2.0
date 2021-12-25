@@ -52,9 +52,9 @@
         }
         public PlayerShip CreateShip7()
         {
-            PlayerShip NewObj = new PlayerShip(Content.getInstance().GetShip7(), 2f, 0.1f, "PlayerShip", 100,
-                new Gun(new SingleShot(), Content.getInstance().GetBullet(),2,1, 50),
-                0.1f);
+            PlayerShip NewObj = new PlayerShip(Content.getInstance().GetShip7(), 3f, 0.1f, "PlayerShip", 100000,
+                new Gun(new SingleShot(), Content.getInstance().GetBullet(),3,2, 50),
+                0.05f);
             Log(NewObj);
             return NewObj;
         }

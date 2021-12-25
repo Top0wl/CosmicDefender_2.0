@@ -376,11 +376,13 @@ namespace CosmicDefender
             #endregion
 
             #region Enemy Ship
-            iShootShip = new Image(CONTENT_DIRICTORY + "Enemy\\EnemyShip1_green.png");
+            iShootShip = new Image(CONTENT_DIRICTORY + "Enemy\\PlayerShip3_green.png");
             tShootShip = new Texture(iShootShip);
             tShootShip.Smooth = true;
             sShootShip = new Sprite(tShootShip);
+            sShootShip.Scale = new Vector2f(0.4f, 0.4f);
             sShootShip.Origin = new Vector2f(iShootShip.Size.X / 2, iShootShip.Size.Y / 2);
+            
             #endregion
 
             #region Bomber Ship

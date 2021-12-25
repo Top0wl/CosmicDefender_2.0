@@ -71,7 +71,15 @@ namespace CosmicDefender
         {
             if (this.Health <= 0)
             {
-                ObjectManager.GetInstance().DeleteEntity(this);
+                if (this.GetType() == typeof(PlayerShip))
+                {
+                    Menu.Menu.GetInstance().IsOpen = true;
+                    ObjectManager.GetInstance().Clear();
+                }
+                else
+                {
+                    ObjectManager.GetInstance().DeleteEntity(this);
+                }
             }
             //Обновить позиции всех элементов
             UpdatePosition(time);
