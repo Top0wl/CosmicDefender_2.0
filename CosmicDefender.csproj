@@ -73,6 +73,7 @@
     <Compile Include="Entities\ActiveObjects\Bullet.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ManagedObjects\ManagedObjects.cs" />
+    <Compile Include="Entities\ManagedObjects\Ships\Boss.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\Decorator\Gun2.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\Decorator\GunDecorator.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\Decorator\ShipDecorator.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Entities\ManagedObjects\Ships\PlayerShip.cs" />
     <Compile Include="Entities\ManagedObjects\Ships\Ship.cs" />
     <Compile Include="FactoryMethod\AbstractFactory.cs" />
+    <Compile Include="FactoryMethod\BossFactory.cs" />
     <Compile Include="FactoryMethod\Factory.cs" />
     <Compile Include="FactoryMethod\Level1Factory.cs" />
     <Compile Include="FactoryMethod\PlayerShipFactory.cs" />

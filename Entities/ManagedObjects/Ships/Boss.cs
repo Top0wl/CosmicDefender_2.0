@@ -1,22 +1,19 @@
 ﻿using System;
-using System.ComponentModel.Design;
-using CosmicDefender.Builders.Interfaces;
 using CosmicDefender.Controllers;
-using CosmicDefender.Visitor;
 using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 
 namespace CosmicDefender
 {
-    public class EnemyShip : Ship
+    public class Boss : Ship
     {
         public float DistantShot = 500;
-        public EnemyShip(Sprite sprite, float maxSpeed, float acceleration, string name, float health, Gun weapon, float firingRate) 
+        public Boss(Sprite sprite, float maxSpeed, float acceleration, string name, float health, Gun weapon, float firingRate) 
             : base(sprite, maxSpeed, acceleration, name, health, weapon, firingRate)
         {
             
         }
+
         public override void Update(float time)
         {
             Force();

@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml;
+using CosmicDefender.Controllers;
 using CosmicDefender.FactoryMethod;
+using SFML.Graphics;
 using SFML.System;
 
 namespace CosmicDefender
 {
     public class SpawnBoss : ISpawn
     {
+        private BossFactory bf = new BossFactory();
         public void Spawn(AbstractFactory af)
         {
-            //entities.Add(new EnemyShip());
+            Vector2f SpawnPos = SpawnPosition();
+            Boss newboss = bf.CreateBoss1();
+            newboss.Coords = new Vector2f(SpawnPos.X,SpawnPos.Y);
+            ObjectManager.GetInstance().AddEntity(newboss);
             Console.WriteLine("Спавним босса");
         }
 

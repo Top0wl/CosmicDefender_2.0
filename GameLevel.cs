@@ -6,7 +6,9 @@ namespace CosmicDefender
 {
     public class GameLevel : IDrawableObjects
     {
+        public Boss EnemyBoss;
         public PlayerShip PlayerShip;
+        
         public AbstractFactory AF;
         public Sprite _sprite { get; set; }
         
@@ -22,12 +24,13 @@ namespace CosmicDefender
             get => _allCountEntities;
             //set => _allCountEntities = value;
         }
-        public GameLevel(Sprite sprite, int countEntitiesOnMap, int allCountEntities, AbstractFactory af)
+        public GameLevel(Sprite sprite, int countEntitiesOnMap, int allCountEntities, AbstractFactory af, Boss boss)
         {
             this.AF = af;
             this._sprite = sprite;
             this._countEntitiesOnMap = countEntitiesOnMap;
             this._allCountEntities = allCountEntities;
+            this.EnemyBoss = boss;
         }
         
         public void Update(float time)

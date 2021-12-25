@@ -14,6 +14,7 @@ namespace CosmicDefender.Menu
         private GameManager GameManager;
         
         private PlayerShipFactory af = new PlayerShipFactory();
+        private BossFactory bossfactory = new BossFactory();
         private int listShips;
         private int listLevels;
         private Sprite BackGround;
@@ -30,7 +31,7 @@ namespace CosmicDefender.Menu
             this.SelectShip = af.CreateShip1();
             this.SelectShip._sprite.Position = new Vector2f(640, 360);
             this.SelectShip._sprite.Scale = new Vector2f(1f, 1f);
-            this.SelectLevel = new GameLevel(Content.getInstance().GetBackgroundLevel6(), 100, 100, new Level1Factory());
+            this.SelectLevel = new GameLevel(Content.getInstance().GetBackgroundLevel6(), 100, 100, new Level1Factory(), bossfactory.CreateBoss1());
             this.IsOpen = true;
             this.listLevels = 1;
             this.listShips = 1;
@@ -50,17 +51,17 @@ namespace CosmicDefender.Menu
         {
             this.RectLevels.Clear();
             this.RectLevels.Add(new MenuRectLevels(Content.getInstance().GetLevel1(), "Level1", new Vector2f(20, 75), 
-                new GameLevel(Content.getInstance().GetBackgroundLevel1(), 100, 100, new Level1Factory())));
+                new GameLevel(Content.getInstance().GetBackgroundLevel1(), 100, 100, new Level1Factory(), bossfactory.CreateBoss1())));
             this.RectLevels.Add(new MenuRectLevels(Content.getInstance().GetLevel2(), "Level2", new Vector2f(20, 175), 
-                new GameLevel(Content.getInstance().GetBackgroundLevel2(), 100, 100, new Level1Factory())));;
+                new GameLevel(Content.getInstance().GetBackgroundLevel2(), 100, 100, new Level1Factory(), bossfactory.CreateBoss1())));;
             this.RectLevels.Add(new MenuRectLevels(Content.getInstance().GetLevel3(), "Level3", new Vector2f(20, 275), 
-                new GameLevel(Content.getInstance().GetBackgroundLevel3(), 100, 100, new Level1Factory())));
+                new GameLevel(Content.getInstance().GetBackgroundLevel3(), 100, 100, new Level1Factory(), bossfactory.CreateBoss1())));
             this.RectLevels.Add(new MenuRectLevels(Content.getInstance().GetLevel4(), "Level4", new Vector2f(20, 375), 
-                new GameLevel(Content.getInstance().GetBackgroundLevel4(), 100, 100, new Level1Factory())));
+                new GameLevel(Content.getInstance().GetBackgroundLevel4(), 100, 100, new Level1Factory(), bossfactory.CreateBoss1())));
             this.RectLevels.Add(new MenuRectLevels(Content.getInstance().GetLevel5(), "Level5", new Vector2f(20, 475), 
-                new GameLevel(Content.getInstance().GetBackgroundLevel5(), 100, 100, new Level1Factory())));
+                new GameLevel(Content.getInstance().GetBackgroundLevel5(), 100, 100, new Level1Factory(), bossfactory.CreateBoss1())));
             this.RectLevels.Add(new MenuRectLevels(Content.getInstance().GetLevel6(), "Level6", new Vector2f(20, 575), 
-                new GameLevel(Content.getInstance().GetBackgroundLevel6(), 100, 100, new Level1Factory())));
+                new GameLevel(Content.getInstance().GetBackgroundLevel6(), 100, 100, new Level1Factory(), bossfactory.CreateBoss1())));
         }
         public void LoadRectShips1()
         {

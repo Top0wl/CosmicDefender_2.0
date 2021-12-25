@@ -35,7 +35,7 @@ namespace CosmicDefender
         {
             int randomint = rnd.Next(1, 100);
             //Шанс спавна
-            if (randomint == 1)
+            if (randomint > 1 && randomint < 4)
             {
                 //Спавн выбор:
                 //1 - астероид
@@ -51,6 +51,13 @@ namespace CosmicDefender
                     _spawnImplementation = new SpawnEnemy();
                     Spawn(Level.AF);
                 }
+            }
+
+            int randombossspawn = rnd.Next(1, 1000);
+            if (randombossspawn == 1)
+            {
+                _spawnImplementation = new SpawnBoss();
+                Spawn(Level.AF);
             }
         }
 

@@ -12,6 +12,7 @@ namespace CosmicDefender.Animation
 
         public Animation(Sprite sprite, int x, int y, int w, int h, int countX, int countY, float speed, float scale, Vector2f coords)
         {
+            this.Health = 100;
             this._sprite = new Sprite(sprite);
             this._sprite.Scale = new Vector2f(scale, scale);
             this.Coords = coords;
@@ -30,6 +31,7 @@ namespace CosmicDefender.Animation
         }
         public Animation(Sprite sprite, int x, int y, int w, int h, int countX, int countY, float speed, float scale)
         {
+            this.Health = 100;
             this._sprite = new Sprite(sprite);
             this._sprite.Scale = new Vector2f(scale, scale);
             _sprite.Origin = new Vector2f(w / 2, h / 2);
@@ -48,6 +50,7 @@ namespace CosmicDefender.Animation
         
         public Animation(Sprite sprite, int x, int y, int w, int h, int count, float speed, float scale)
         {
+            this.Health = 100;
             this._sprite = new Sprite(sprite);
             this._sprite.Scale = new Vector2f(scale, scale);
             this._sprite.Origin = new Vector2f(_sprite.Texture.Size.X/2, _sprite.Texture.Size.Y / 2);
@@ -67,18 +70,23 @@ namespace CosmicDefender.Animation
             if (Frame >= n) Frame -= n;
             if (n > 0)
                 _sprite.TextureRect = frames[(int)Frame];
-            if (this.isEnd()) this.Health = 0;
+            if (this.isEnd())
+            {
+                this.Health = 0;
+            }
+            base.Update(time);
         }
         public bool isEnd()
         {
             return Frame + Speed >= frames.Count;
         }
 
-        public override void Draw()
-        {
-            _sprite.Position = new Vector2f(Coords.X, Coords.Y);
-            Window.getInstance().getWindow().Draw(_sprite);
-        }
+        // public override void Draw()
+        // {
+        //     // _sprite.Position = new Vector2f(Coords.X, Coords.Y);
+        //     // base.Draw();
+        //     // Window.getInstance().getWindow().Draw(_sprite);
+        // }
 
         public override void Collide(Entity ent1, Entity ent2)
         {

@@ -3,6 +3,7 @@ using SFML.System;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -312,7 +313,9 @@ namespace CosmicDefender
             tBoss2 = new Texture(iBoss2);
             tBoss2.Smooth = true;
             sBoss2 = new Sprite(tBoss2);
+            sBoss2.Scale = new Vector2f(0.4f, 0.4f);
             sBoss2.Origin = new Vector2f(iBoss2.Size.X / 2, iBoss2.Size.Y / 2);
+            
 
             #endregion
 
@@ -353,6 +356,7 @@ namespace CosmicDefender
             tBoss6 = new Texture(iBoss6);
             tBoss6.Smooth = true;
             sBoss6 = new Sprite(tBoss6);
+            sBoss6.Scale = new Vector2f(0.3f, 0.3f);
             sBoss6.Origin = new Vector2f(iBoss6.Size.X / 2, iBoss6.Size.Y / 2);
 
             #endregion
@@ -442,6 +446,8 @@ namespace CosmicDefender
             tTypeA = new Texture(iTypeA);
             tTypeA.Smooth = true;
             sTypeA = new Sprite(tTypeA);
+            sTypeA.Scale = new Vector2f(2F, 2F);
+            sTypeA.Origin = new Vector2f(iTypeA.Size.X / 2, iTypeA.Size.Y / 2);
 
             #endregion
 
@@ -450,6 +456,7 @@ namespace CosmicDefender
             tTypeB = new Texture(iTypeB);
             tTypeB.Smooth = true;
             sTypeB = new Sprite(tTypeB);
+            sTypeB.Origin = new Vector2f(iTypeB.Size.X / 2, iTypeB.Size.Y / 2);
 
             #endregion
 
@@ -458,6 +465,9 @@ namespace CosmicDefender
             tTypeC = new Texture(iTypeC);
             tTypeC.Smooth = true;
             sTypeC = new Sprite(tTypeC);
+            sTypeC.Scale = new Vector2f(0.5f, 0.5f);
+            sTypeC.Origin = new Vector2f(iTypeC.Size.X / 2, iTypeC.Size.Y / 2);
+            
 
             #endregion
 
@@ -1308,5 +1318,19 @@ namespace CosmicDefender
         #endregion
 
         #endregion
+
+        public Animation.Animation GetExplosive1(Vector2f coords, float speed, float scale)
+        {
+            int rnd = new Random().Next(0, 3);
+            switch (rnd) 
+            {
+                case 0: return new Animation.Animation(Content.getInstance().GetTypeA(), 0, 0, 50, 50, 20, 1, speed, scale * 2, coords);
+                case 1 : return new Animation.Animation(Content.getInstance().GetTypeB(), 0, 0, 192, 192, 64, 1, speed, scale, coords);
+                case 2 : return new Animation.Animation(Content.getInstance().GetTypeC(), 0, 0, 256, 256, 48, 1, speed, scale, coords);
+            }
+            return new Animation.Animation(Content.getInstance().GetTypeA(), 0, 0, 50, 50, 20, 1, speed, scale, coords);
+        }
+        
+
     }
 }

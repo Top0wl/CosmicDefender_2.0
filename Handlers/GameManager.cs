@@ -14,7 +14,7 @@ namespace CosmicDefender
         private ObjectManager _objectManager;
         private List<Entity> _entities => _objectManager.GetEntities();
         private ISpawner _spawner;
-        private GameLevel _level;
+        public GameLevel _level;
         private Content _content;
         private Collider _collider;
         
@@ -24,10 +24,23 @@ namespace CosmicDefender
             _content = new Content();
             _content.Load();
             _objectManager  = ObjectManager.GetInstance();
-            this._level = new GameLevel(_content.GetBackgroundLevel1(), 30, 100, new Level1Factory());
+            //this._level = new GameLevel(_content.GetBackgroundLevel1(), 30, 100, new Level1Factory(), );
             this._collider = new Collider(_entities);
             this._spawner = new SpawnerEntities(this);
 
+            
+            // Animation.Animation AnimationExplosive1 = new Animation.Animation(Content.getInstance().GetTypeC(), 0, 0, 256, 256, 48, 1,0.1f, 1f, new Vector2f(100f,100f));
+            // ObjectManager.GetInstance().AddEntity(AnimationExplosive1);
+            //
+            // Animation.Animation AnimationExplosive2 = new Animation.Animation(Content.getInstance().GetTypeA(), 0, 0, 50, 50, 20, 1,0.1f, 1f, new Vector2f(300f,100f));
+            // ObjectManager.GetInstance().AddEntity(AnimationExplosive2);
+            //
+            // Animation.Animation AnimationExplosive3 = new Animation.Animation(Content.getInstance().GetTypeB(), 0, 0, 192, 192, 64, 1,0.1f, 1f, new Vector2f(600f,100f));
+            // ObjectManager.GetInstance().AddEntity(AnimationExplosive3);
+            
+            
+            
+            
             //Asteroid aste = new Asteroid(new Animation.Animation(Content.getInstance().GetsAnimAsteroid1(), 0, 0, 85,
             //    100, 6, 5, 0.15f, 0.4f, new Vector2f(0,0)), "Asteroid", 100);
             // ObjectManager.GetInstance().AddEntity(aste);
@@ -54,7 +67,7 @@ namespace CosmicDefender
             {
                 var entity = _entities[i];
                 entity.Update(time);
-                entity.Draw();
+                entity.Draw();      
             }
         }
         private float Time()

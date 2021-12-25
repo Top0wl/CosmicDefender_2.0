@@ -49,6 +49,7 @@ namespace CosmicDefender
             Console.WriteLine($"{bullet.GetType()} посетила объект {this.GetType()} и нанёс урон");
             bullet.DisableCollide();
             bullet.Damage(this);
+            ObjectManager.GetInstance().AddEntity(Content.getInstance().GetExplosive1(bullet.Coords, 1f, 0.2f));
             ObjectManager.GetInstance().DeleteEntity(bullet);
         }
         public override void Visit(PlayerShip playerShip)
