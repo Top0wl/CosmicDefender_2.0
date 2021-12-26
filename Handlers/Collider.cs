@@ -56,7 +56,7 @@ namespace CosmicDefender
                         if (IsCollide(item1._sprite, item2._sprite))
                         {
                             //Если коллизия произошла, то сделать событие
-                            if (item1.GetType() == typeof(EnemyShip) && item2.GetType() == typeof(EnemyShip))
+                            if ((item1.GetType() == typeof(EnemyShip) && item2.GetType() == typeof(EnemyShip)) || item1.GetType() == typeof(Animation.Animation) || item2.GetType() == typeof(Animation.Animation))
                             {
                             }
                             else 
