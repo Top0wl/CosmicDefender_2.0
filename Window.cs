@@ -36,7 +36,7 @@ namespace CosmicDefender
         
         private static void Win_Resized(object sender, SizeEventArgs e)
         {
-            _window.SetView(new View(new FloatRect(0, 0, e.Width, e.Height)));
+            //_window.SetView(new View(new FloatRect(0, 0, e.Width, e.Height)));
         }
         private static void Window_Closed(object sender, EventArgs e)
         {
